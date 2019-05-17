@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import STORE from './src/store.js';
+
+const listHeader = STORE.list.map(item => item.header);
+const cardTitle = Object.keys(STORE.allCards).map(item => item.title);
+const cardContent = Object.keys(STORE.allCards).map(item => item.content);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div class="App-list">
+      <section class="List">
+        <header class="List-header">
+          <h2>{listHeader}</h2>
+        </header>
+        <div class="List-cards">
+          <div class="Card">
+            <h3>{cardTitle}</h3>
+            <p>{cardContent}</p>
+          </div>
+        </div>
+      </section>
+      </div>
+    );
 }
+
 
 export default App;
